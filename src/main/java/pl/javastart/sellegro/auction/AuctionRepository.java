@@ -17,11 +17,14 @@ public interface AuctionRepository extends JpaRepository <Auction, Long> {
 //    List<Auction> sortUserByLastNameDescJPQL(@Param("sorter") String sort);
 
     List<Auction> findAllByOrderByPrice();
-    List<Auction> findAllByOrderByCarModel();
-    List<Auction> findAllByOrderByCarMake();
     List<Auction> findAllByOrderByColor();
     List<Auction> findAllByOrderByEndDate();
-    List<Auction> findAllByOrderByTitle();
     List<Auction> findAll();
 
+    @Query(value= "SELECT * from auction a order by a.car_Make, a.car_Model ", nativeQuery= true)
+    List<Auction> findAllByOrderByTitle();
+
+
+    @Query(value= "SELECT * from auction a order by a.price DESC LIMIT 0,4", nativeQuery= true)
+    List<Auction> getFirst4expensive();
 }

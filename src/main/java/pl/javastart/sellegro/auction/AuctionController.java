@@ -36,12 +36,17 @@ public class AuctionController {
                            AuctionFilters auctionFilters) {
         List<Auction> auctions = null;
 
+        for (Auction a:auctionRepository.findAll()) {
+            a.setTitle(a.getCarMake()+" " + a.getCarModel());
+        }
+
 
         if(sort != null) {
 
             switch (sort) {
                 case "title":
                     auctions = auctionRepository.findAllByOrderByTitle();
+
                     break;
                 case "color":
                     auctions = auctionRepository.findAllByOrderByColor();
@@ -57,6 +62,8 @@ public class AuctionController {
         } else {
             auctions = auctionRepository.findAll();
         }
+
+
 
         model.addAttribute("cars", auctions);
         model.addAttribute("filters", auctionFilters );
