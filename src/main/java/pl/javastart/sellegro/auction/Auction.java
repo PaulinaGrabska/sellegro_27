@@ -16,7 +16,7 @@ public class Auction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String carMaker;
+    private String carMake;
     private String carModel;
     private String color;
     private BigDecimal price;
@@ -25,10 +25,10 @@ public class Auction {
     public Auction() {
     }
 
-    public Auction(Long id, String title, String carMaker, String carModel, String color, BigDecimal price, LocalDate endDate) {
+    public Auction(Long id, String title, String carMake, String carModel, String color, BigDecimal price, LocalDate endDate) {
         this.id = id;
         this.title = title;
-        this.carMaker = carMaker;
+        this.carMake = carMake;
         this.carModel = carModel;
         this.color = color;
         this.price = price;
@@ -51,12 +51,12 @@ public class Auction {
         this.title = title;
     }
 
-    public String getCarMaker() {
-        return carMaker;
+    public String getCarMake() {
+        return carMake;
     }
 
-    public void setCarMaker(String carMaker) {
-        this.carMaker = carMaker;
+    public void setCarMake(String carMaker) {
+        this.carMake = carMake;
     }
 
     public String getCarModel() {
