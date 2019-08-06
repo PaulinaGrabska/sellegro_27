@@ -19,7 +19,11 @@ public interface AuctionRepository extends JpaRepository <Auction, Long> {
     List<Auction> findAllByOrderByPrice();
     List<Auction> findAllByOrderByColor();
     List<Auction> findAllByOrderByEndDate();
-    List<Auction> findAll();
+    List<Auction> findAllByCarMakeContaining(String carMake);
+    List<Auction> findAllByCarModelContaining(String carModel);
+    List<Auction> findAllByColorContaining(String color);
+    List<Auction> findAllByTitleContaining(String title);
+
 
     @Query(value= "SELECT * from auction a order by a.car_Make, a.car_Model ", nativeQuery= true)
     List<Auction> findAllByOrderByTitle();
